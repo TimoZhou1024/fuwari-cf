@@ -2,7 +2,7 @@
 title: 群晖SSL证书自动续签+反向代理
 published: 2025-07-23
 description: 使用acme.sh在群晖NAS上实现SSL证书自动续签和反向代理配置。
-image: https://www.loliapi.com/acg
+image: https://www.loliapi.com/acg?id=20250723
 tags: [Synology, acme, Nginx, 反向代理]
 category: tech
 draft: false

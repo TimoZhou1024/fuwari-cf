@@ -2,7 +2,7 @@
 title: 1Panel服务器迁移和Wordpress配置
 published: 2025-07-31
 description: 1Panel整体迁移使用快照功能的方法，以及迁移后Wordpress域名配置修改。
-image: https://www.loliapi.com/acg
+image: https://www.loliapi.com/acg?id=20250731
 tags: [1Panel, Wordpress, migration]
 category: tech
 draft: false
