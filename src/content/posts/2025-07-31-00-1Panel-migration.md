@@ -14,7 +14,7 @@ draft: false
 
 首先在旧服务器上创建快照：
 
-![创建快照](https://lsky.ymqs.top/i/2025/07/31/688a4d96e5e0f.png)
+![创建快照](https://imgbed.050518.xyz/file/1790736630596_image.png)
 
 快照文件存储在 `/opt/1panel/backup/system_snapshot` 目录下，将快照文件（一般是以 `.tar.gz` 结尾的文件）先下载到本地。
 
@@ -36,11 +36,11 @@ bash -c "$(curl -sSL https://resource.fit2cloud.com/1panel/package/v2/quick_star
 
 上传完成后，来到 `面板设置-快照`，这时快照列表还是空的，点击 `同步快照`，选择备份方式：
 
-![同步快照](https://lsky.ymqs.top/i/2025/07/31/688a4fdc31334.png)
+![同步快照](https://imgbed.050518.xyz/file/1790737437641_image.png)
 
 这时列表中就有快照了，点击 `恢复`，在弹出的页面中再点 `恢复` 即可。
 
-![恢复](https://lsky.ymqs.top/i/2025/07/31/688a5059372d8.png)
+![恢复](https://imgbed.050518.xyz/file/1790737498265_image.png)
 
 点击恢复后等待一段时间，再次刷新页面时应该处于`404`状态，这是因为 `访问端口` 和之后跟着的 `安全码` 与旧服务器一致，如果遗忘了可以在终端中使用以下命令查看：
 
@@ -56,15 +56,7 @@ bash -c "$(curl -sSL https://resource.fit2cloud.com/1panel/package/v2/quick_star
 
 然而，如果迁移后希望更改域名或者直接使用 `ip` 访问，可能会因为 `Wordpress` 的配置问题导致无法访问，这是因为 `Wordpress` 在安装时会将域名写入数据库中。
 
-首先在 `1Panel` 的 `数据库` 中找到 `Wordpress` 对应的数据库用户名和密码：
-
-![数据库](https://lsky.ymqs.top/i/2025/07/31/688a52f2dac4b.png)
-
-这里可以点击上方的 `管理`，选择通过 `phpMyAdmin` 进行管理。笔者比较熟悉 `Navicat`，所以使用 `Navicat` 连接数据库。添加好数据库后，在数据库中找到 `wp_options` 表，点击查看：
-
-![navicat](https://lsky.ymqs.top/i/2025/07/31/688a53f2ebf35.png)
-
-修改 `siteurl` 和 `home` 字段为新的域名或 `ip` 地址，保存即可。
+首先在 `1Panel` 的 `数据库` 中找到 `Wordpress` 对应的数据库用户名和密码,这里可以点击上方的 `管理`，选择通过 `phpMyAdmin` 进行管理。笔者比较熟悉 `Navicat`，所以使用 `Navicat` 连接数据库。添加好数据库后，在数据库中找到 `wp_options` 表，修改 `siteurl` 和 `home` 字段为新的域名或 `ip` 地址，保存即可。
 
 **注意**：如果还没有配置好域名访问或者直接用 `ip` 访问，需要在访问地址后面带上端口号，否则会被 `wordpress` 重定向到旧的域名导致无法访问，一般使用 `docker` 部署的 `wordpress` 默认端口是 `8080` 或 `8081`，所以访问地址为 `http://ip:8080` 或 `http://ip:8081`。
 
